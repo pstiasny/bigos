@@ -4,7 +4,7 @@ Use the `on` decorator to run tasks when matching files are touched:
 
     from bigos import on, main
 
-    @on(r'^(.*/)*?[^.]')
+    @on(r'^[^/]*/([^.][^/]*\/)*[^.][^/]*$')
     def non_dotfile_task(ev):
         print 'file event:', ev.path
 

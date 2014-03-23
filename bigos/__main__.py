@@ -7,7 +7,7 @@ from . import main, on
 def default_task(ev):
     print 'event:', ev.path, ev.type, 'dir' if ev.is_dir else 'file'
 
-@on(r'^(.*/)*?[^.]')
+@on(r'^[^/]*/([^.][^/]*\/)*[^.][^/]*$')
 def file_task(ev):
     print 'file event:', ev.path, ev.type
     if hasattr(ev, 'flags'):
