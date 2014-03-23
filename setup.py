@@ -13,7 +13,7 @@ setuptools.setup(
     url="http://github.com/pstiasny/bigos",
     license="GPL",
     description="Do stuff on file change",
-    long_description=open(join(dirname(__file__), "README.md")).read(),
+    long_description=open(join(dirname(__file__), "README.rst")).read(),
     keywords=['filesystem', 'event', 'task'],
     classifiers=[
         'Development Status :: 3 - Alpha',
