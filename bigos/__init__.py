@@ -1,6 +1,8 @@
 #/bin/env python2
 # encoding: utf8
 
+__version__ = '0.0.1'
+
 import re
 import itertools
 
