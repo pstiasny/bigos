@@ -85,6 +85,19 @@ class InotifyEvent(Structure):
     def is_dir(self):
         return bool(self.mask & Flags.ISDIR)
 
+    @property
+    def type(self):
+        if self.mask & Flags.MODIFY:
+            return 'modified'
+        elif self.mask & Flags.CREATE:
+            return 'created'
+        elif self.mask & Flags.DELETE:
+            return 'removed'
+        if self.mask & Flags.ACCESS:
+            return 'read'
+        else:
+            return 'other'
+
 
 class Inotify:
     def __init__(self):

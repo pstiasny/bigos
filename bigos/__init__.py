@@ -4,8 +4,7 @@
 import re
 import itertools
 
-#from .backend.inotify import generate_events
-from .backend.polling import generate_events
+from .backend import generate_events
 
 watchlist = []
 
