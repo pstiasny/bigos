@@ -1,6 +1,6 @@
 Bigos - do stuff on file change
 
-Use the `on` decorator to run tasks when matching files are touched:
+Use the `on` decorator to run tasks when matching files are modified:
 
     from bigos import on, main
 

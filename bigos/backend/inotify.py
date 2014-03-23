@@ -87,13 +87,13 @@ class InotifyEvent(Structure):
 
     @property
     def type(self):
-        if self.mask & Flags.MODIFY:
+        if self.mask & Flags.MODIFY or self.mask & Flags.CLOSE_WRITE:
             return 'modified'
         elif self.mask & Flags.CREATE:
             return 'created'
         elif self.mask & Flags.DELETE:
             return 'removed'
-        if self.mask & Flags.ACCESS:
+        if self.mask & Flags.ACCESS or self.mask & Flags.CLOSE_NOWRITE:
             return 'read'
         else:
             return 'other'
