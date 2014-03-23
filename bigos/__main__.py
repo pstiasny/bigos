@@ -2,12 +2,18 @@
 # encoding: utf8
 
 from .backend.inotify import Flags
-from . import main, on_event
+from . import main, on
 
-#@on_event(r'^(.*/)*?[^.]')
-@on_event(r'')
-def muhtask(ev):
-    #print 'event:', ev.wd, ev.path, Flags(ev.mask)
+@on(r'', dirs=None)
+def default_task(ev):
     print 'event:', ev.path, ev.type, 'dir' if ev.is_dir else 'file'
+
+@on(r'')
+def file_task(ev):
+    print 'file event:', ev.path
+
+@on(r'', dirs=True)
+def dir_task(ev):
+    print 'dir event:', ev.path
 
 main('.')

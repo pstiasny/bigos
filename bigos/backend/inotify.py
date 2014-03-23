@@ -60,7 +60,7 @@ class Flags:
 
 class InotifyEvent(Structure):
     '''
-    struct InotifyEvent {
+    struct inotify_event {
         int      wd;       /* Watch descriptor */
         uint32_t mask;     /* Mask of events */
         uint32_t cookie;   /* Unique cookie associating related
@@ -80,6 +80,10 @@ class InotifyEvent(Structure):
     @property
     def flags(self):
         return Flags(self.mask)
+
+    @property
+    def is_dir(self):
+        return bool(self.mask & Flags.ISDIR)
 
 
 class Inotify:
