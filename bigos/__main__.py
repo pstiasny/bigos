@@ -1,7 +1,7 @@
 #/bin/env python2
 # encoding: utf8
 
-from . import main, on
+from bigos import main, on
 
 @on(r'^[^/]*/([^.][^/]*\/)*[^.][^/]*$')
 def file_task(ev):

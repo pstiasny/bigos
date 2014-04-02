@@ -6,8 +6,8 @@ from os.path import join, dirname
 
 setuptools.setup(
     name="bigos",
-    version="0.0.1",
-    packages=["bigos"],
+    version="0.0.2",
+    packages=["bigos", "bigos.backend"],
     author=u"Paweł Stiasny",
     author_email="pawelstiasny@gmail.com",
     url="http://github.com/pstiasny/bigos",

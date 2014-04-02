@@ -1,12 +1,12 @@
 #/bin/env python2
 # encoding: utf8
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 import re
 import itertools
 
-from .backend import generate_events
+from bigos.backend import generate_events
 
 watchlist = []
 
