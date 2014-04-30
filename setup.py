@@ -1,4 +1,4 @@
-#/bin/env python2
+#/bin/env python
 # encoding: utf8
 
 import setuptools
@@ -6,9 +6,9 @@ from os.path import join, dirname
 
 setuptools.setup(
     name="bigos",
-    version="0.0.2",
+    version="0.0.3",
     packages=["bigos", "bigos.backend"],
-    author=u"Paweł Stiasny",
+    author="Pawel Stiasny",
     author_email="pawelstiasny@gmail.com",
     url="http://github.com/pstiasny/bigos",
     license="GPL",
@@ -27,5 +27,7 @@ setuptools.setup(
         'Topic :: Utilities',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
     ],
 )

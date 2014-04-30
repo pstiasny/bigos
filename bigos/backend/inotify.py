@@ -48,7 +48,7 @@ class Flags:
         >>> list(Flags(Flags.CREATE | Flags.ISDIR))
         ['CREATE', 'ISDIR']
         """
-        for k, v in self.__class__.__dict__.iteritems():
+        for k, v in self.__class__.__dict__.items():
             if k != k.upper():
                 continue
 
@@ -107,7 +107,7 @@ class Inotify:
 
     def add_watch(self, filename, flags=Flags.ALL_EVENTS):
         r = libc.inotify_add_watch(
-            self.fd, c_char_p(filename), c_uint32(flags))
+            self.fd, c_char_p(filename.encode('utf-8')), c_uint32(flags))
         if r <= 0: raise IOError('inotify_add_watch returned %d', r)
 
         return r
@@ -131,7 +131,7 @@ class Inotify:
         if r <= 0: raise IOError('read returned %d', r)
 
         event_buf.path = os.path.join(
-            self.wd_to_dir[event_buf.wd], event_buf.name)
+            self.wd_to_dir[event_buf.wd], event_buf.name.decode('utf-8'))
 
         return event_buf
 

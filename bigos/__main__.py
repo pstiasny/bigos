@@ -5,8 +5,8 @@ from bigos import main, on
 
 @on(r'^[^/]*/([^.][^/]*\/)*[^.][^/]*$')
 def file_task(ev):
-    print 'file event:', ev.path, ev.type
+    print('file event:', ev.path, ev.type)
     if hasattr(ev, 'flags'):
-        print 'inotify flags:', ev.flags
+        print('inotify flags:', ev.flags)
 
 main('.')
